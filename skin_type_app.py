@@ -15,7 +15,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Load the model
 model = resnet50(weights=None)  # Initialize without pretrained weights
 model.fc = nn.Linear(model.fc.in_features, 2)  # 2 classes: dry and oily
-model.load_state_dict(torch.load("skin_classifier.pth", map_location=device))
+model.load_state_dict(torch.load("best_model.pth", map_location=device))
 model = model.to(device)
 model.eval()
 
